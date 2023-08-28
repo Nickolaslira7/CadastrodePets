@@ -140,3 +140,7 @@ function deletePet(id) {
     document.getElementById("div" + id).classList.add("hidden")
     petList.remove(id);   
 }
+
+let birthdate = new Date (this.birthdate);
+let day = birthDate.getDate();
+let month= birthdate.getMonth() +1;
