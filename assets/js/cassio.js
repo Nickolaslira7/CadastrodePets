@@ -6,13 +6,24 @@ class Pet{
         this.photograph = photograph;
         this.Birthday = Birthday;
         this.id = this.ContId();
+        this.age = this.calculateAge();
+
+        
     }
     ContId() {
         let id = 1;
         id++
         return id
     }
+    calculateAge() {
+        const birthdate = new Date(this.Birthday);
+        const currentDate = new Date();
+        const ageInMilliseconds = currentDate - birthdate;
+        const ageInYears = ageInMilliseconds / (365 * 24 * 60 * 60 * 1000);
+        return Math.floor(ageInYears);
+    }
 }
+
 
 function composePet() {
     let tutor = document.getElementById("tutorInput").value
@@ -39,7 +50,7 @@ class PetList{
     }
     remove(id) {
         const index = this.petArrey.findIndex(pet => pet.id === id);
-        if (index !== -1) {
+        if (index !== 1) {
             this.petArrey.splice(index, 1);
         }
     }
@@ -114,6 +125,24 @@ function ShowPets() {
     document.getElementById("main2").classList.remove("hidden")
     document.getElementById("main1").classList.add("hidden")
 }
+function listHTML() {
+    const listHTML = document.getElementById("listPets");
+    listHTML.innerHTML = '';
+    let array = petList.petArrey;
+
+    array.forEach(pet => {
+        // ... (other pet details)
+        const petDiv = `<div class="petDetail" id="div${pet.id}">
+            <!-- ... (other details) -->
+            <p><b>Idade:</b> ${pet.age} anos</p>
+            <div id="petButtons">
+                <button onclick="deletePet(${pet.id})">Delete</button>
+                <button onclick="EditPet(${pet.id})">Editar</button>
+            </div>
+        </div>`;
+        listHTML.innerHTML += petDiv;
+    })
+}
 
 function listHTML() {
 
@@ -128,8 +157,10 @@ function listHTML() {
         <p><b>Nome do pet:</b> ${pet.namePet}</p> 
         <p><b>Espécie:</b> ${pet.specie}</p> 
         <p><b>Data de nascimento:</b> ${pet.Birthday}</p>
-        <div id="petButtons"><button onclick="deletePet(${pet.id})">Delete</button>
-        <button onclick="EditPet(${pet.id})">Editar</button></div>
+        <p><b>Idade:</b> ${pet.age} anos</p>
+        <div id="petButtons">
+            <button onclick="deletePet(${pet.id})">Delete</button>
+            <button onclick="EditPet(${pet.id})">Editar</button>
         </div>`;
         listHTML.innerHTML += petDiv;
     })
@@ -141,6 +172,5 @@ function deletePet(id) {
     petList.remove(id);   
 }
 
-let birthdate = new Date (this.birthdate);
-let day = birthDate.getDate();
-let month= birthdate.getMonth() +1;
+
+
