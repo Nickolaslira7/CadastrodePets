@@ -53,8 +53,20 @@ class PetList{
         if (index !== 1) {
             this.petArrey.splice(index, 1);
         }
+    } 
+    edit(id, updatedData) {
+        const petToUpdate = this.petArray.find(pet => pet.id === id);
+        if (petToUpdate) {
+            // You can add specific properties you want to update here
+            if (updatedData.name !== undefined) {
+                petToUpdate.name = updatedData.name;
+            }
+            if (updatedData.age !== undefined) {
+                petToUpdate.age = updatedData.age;
+            }
+        }}
     }
-}
+    
 
 const petList = new PetList();
 

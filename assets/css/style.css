@@ -50,7 +50,7 @@ h2{
     text-align: center;
     margin-top: 30px;
     margin-bottom: 2.5rem;
-    color: rgb(4, 161, 4);
+    color:rgb(255, 255, 255);
 }
 #container-inputs input{
     width: 55%;
@@ -58,7 +58,7 @@ h2{
     margin-bottom: 2%;
 }
 #container-inputs label{
-    color: #10a318;
+    color: blueviolet;
 }
 
 .hidden{
@@ -71,7 +71,7 @@ h2{
 }
 
 footer{
-    background-color: #05940c;
+    background-color: violet;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -83,9 +83,10 @@ footer p{
 }
 header{
     color: #ffffff;
-    background-color: #05940c;
+    background-color: violet;
     align-items: center;
     text-align: center;
+    border: 1px blueviolet;
 }
 header button{
     color: #ffffff;
@@ -98,7 +99,7 @@ header button{
 
 #main1 button{
     color: #ffffff;
-    background-color: #05940c;
+    background-color: violet;
     border: none;
     border-radius: 5%;
     padding: 10px;
@@ -106,7 +107,7 @@ header button{
 }
 #main2 button{
     color: #ffffff;
-    background-color: #05940c;
+    background-color: violet;
     border: none;
     border-radius: 5%;
     padding: 10px;
@@ -121,86 +122,6 @@ header button{
     height: 250px;
     margin: 5px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
