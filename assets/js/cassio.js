@@ -121,12 +121,5 @@ function listHTML() {
         </div>`;
         listHTML.innerHTML += petDiv;
     })
-
-
-
 }
-
-
 const pet = new Pet();
-
-
