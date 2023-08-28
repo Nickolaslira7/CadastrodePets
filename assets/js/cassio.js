@@ -21,7 +21,12 @@ function composePet() {
     let photograph = document.getElementById("Photograph-Input").value
     let Birthday = document.getElementById("Birthday-Input").value
 
-    const NewPet = new Pet(tutor, namePet, specie, photograph, Birthday, pet.ContId());
+    const originalDate = Birthday;
+const dateComponents = originalDate.split("-");
+const invertedDate = `${dateComponents[2]}/${dateComponents[1]}/${dateComponents[0]}`;
+
+
+    const NewPet = new Pet(tutor, namePet, specie, photograph, invertedDate, pet.ContId());
     petList.Add(NewPet);
 }
 
@@ -31,6 +36,12 @@ class PetList{
     }
     Add(parameter){
         this.petArrey.push(parameter);
+    }
+    remove(id) {
+        const index = this.petArrey.findIndex(pet => pet.id === id);
+        if (index !== -1) {
+            this.petArrey.splice(index, 1);
+        }
     }
 }
 
@@ -117,9 +128,21 @@ function listHTML() {
         <p><b>Nome do pet:</b> ${pet.namePet}</p> 
         <p><b>Espécie:</b> ${pet.specie}</p> 
         <p><b>Data de nascimento:</b> ${pet.Birthday}</p>
-        <button onclick="deletepet(${pet.id})">Delete</button>
+        <div id="petButtons"><button onclick="deletePet(${pet.id})">Delete</button>
+        <button onclick="EditPet(${pet.id})">Editar</button></div>
         </div>`;
         listHTML.innerHTML += petDiv;
     })
+
+
+
 }
+
+
 const pet = new Pet();
+
+function deletePet(id) {
+    document.getElementById("div" + id).classList.add("hidden")
+    petList.remove(id);
+    
+}
