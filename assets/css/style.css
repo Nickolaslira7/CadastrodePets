@@ -116,6 +116,10 @@ header button{
     display: flex;
 }
 
+#petDetail{
+    width: 200px;
+    height: 250px;
+}
 
 
 

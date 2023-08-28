@@ -133,16 +133,10 @@ function listHTML() {
         </div>`;
         listHTML.innerHTML += petDiv;
     })
-
-
-
 }
-
-
 const pet = new Pet();
 
 function deletePet(id) {
     document.getElementById("div" + id).classList.add("hidden")
-    petList.remove(id);
-    
+    petList.remove(id);   
 }
